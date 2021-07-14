@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    //开始游戏
     public void StartGame(int difficulty)
     {
         spawnRate /= difficulty;
