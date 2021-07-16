@@ -14,6 +14,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnRandomAnimal", startDelay, spawnInterval);
+        InvokeRepeating("SpawnRandomAnimalHorizontal", startDelay, spawnInterval);
     }
 
     // Update is called once per frame
@@ -24,11 +25,23 @@ public class SpawnManager : MonoBehaviour
             SpawnRandomAnimal();
         }
     }
+    //产生竖直方向敌人
     void SpawnRandomAnimal()
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
         animalIndex = Random.Range(0, animalPrefabs.Length);
         //生成一个新的动物
         Instantiate(animalPrefabs[animalIndex], spawnPos, animalPrefabs[animalIndex].transform.rotation);
+    }
+    //产生水平方向敌人
+    void SpawnRandomAnimalHorizontal()
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(0,2)*40 - 20, 0, Random.Range(0f,12.0f));
+        animalIndex = Random.Range(0, animalPrefabs.Length);
+        //生成一个新的动物
+        if(spawnPos.x<0)
+            Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(0,90,0));
+        else
+            Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(0, 270, 0));
     }
 }

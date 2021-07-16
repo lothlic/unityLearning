@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 65246417804210708}
   m_Layer: 0
   m_Name: Animal_Fox_01
-  m_TagString: Untagged
+  m_TagString: Dog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
